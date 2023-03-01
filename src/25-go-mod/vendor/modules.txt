@@ -1,0 +1,6 @@
+# github.com/BurntSushi/toml v0.3.1
+github.com/BurntSushi/toml
+# github.com/jinzhu/configor v1.1.1
+github.com/jinzhu/configor
+# gopkg.in/yaml.v2 v2.2.2
+gopkg.in/yaml.v2
