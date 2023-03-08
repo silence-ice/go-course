@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+/**
+ * 执行的命令：protoc --proto_path=. --go_out=. --go-grpc_out=. helloworld/helloworld.proto
+ */
+
+//xx_package指的是你的编译语言，比如你要编程成Go语言，对应的就是 go_package，go_package 表示会创建 `helloworld`目录，再写入文件
+option go_package = "/helloworld";
+
+package helloworld;
+
+//step1: 在 .proto 文件中指定 service：
+service Greeter {
+  //step2: service 中定义 rpc 方法，指定请求的和响应类型
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  rpc SayPerson (BaseInfo) returns (TrueInfo) {}
+}
+
+//step3: 消息类型定义
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}
+
+
+message BaseInfo {
+  string name = 1;
+  int64 age = 2 ;
+}
+
+//继承
+message TrueInfo {
+  string name = 1;
+  int64 age = 2 ;
+  Dog dog = 3 ;
+}
+
+message Dog {
+  string name = 1;
+  int64 sex = 2 ;
+}
